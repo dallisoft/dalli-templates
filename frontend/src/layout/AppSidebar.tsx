@@ -7,6 +7,7 @@ import {
   CalenderIcon,
   ChatIcon,
   ChevronDownIcon,
+  FolderIcon,
   GridIcon,
   HorizontaLDots,
   ListIcon,
@@ -28,6 +29,13 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
+  {
+    icon: <FolderIcon />,
+    name: "Knowledge Bases",
+    subItems: [
+      { name: "KB List", path: "/knowledgebases", pro: false },
+    ],
+  },
   {
     icon: <UserCircleIcon />,
     name: "Users",

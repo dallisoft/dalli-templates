@@ -30,6 +30,8 @@ services:
       - "8000:8000"
     environment:
       - DATABASE_URL=postgresql://admin:password@postgres:5432/dalli_template
+    volumes:
+      - uploads_data:/app/uploads
     depends_on:
       postgres:
         condition: service_healthy
@@ -69,6 +71,7 @@ services:
 
 volumes:
   postgres_data:
+  uploads_data:
 
 networks:
   dalli-template-network:

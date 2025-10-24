@@ -32,6 +32,9 @@ COPY . .
 # Make init script executable
 RUN chmod +x init_db.py
 
+# Create uploads directory for file storage
+RUN mkdir -p /app/uploads
+
 # Create non-root user
 RUN useradd --create-home --shell /bin/bash app && chown -R app:app /app
 USER app

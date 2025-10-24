@@ -25,6 +25,8 @@ import PostForm from "./pages/Posts/PostForm";
 import UserList from "./pages/Users/UserList";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import KnowledgebaseList from "./pages/Knowledgebases/KnowledgebaseList";
+import KnowledgebaseDetail from "./pages/Knowledgebases/KnowledgebaseDetail";
 
 // Home page and static pages
 import Home from "./pages/Home";
@@ -102,6 +104,10 @@ export default function App() {
             {/* Charts */}
             <Route path="/line-chart" element={<LineChart />} />
             <Route path="/bar-chart" element={<BarChart />} />
+
+            {/* Knowledge Bases */}
+            <Route path="/knowledgebases" element={<KnowledgebaseList />} />
+            <Route path="/knowledgebases/:id" element={<KnowledgebaseDetail />} />
           </Route>
 
           {/* Fallback Route */}
