@@ -51,6 +51,7 @@ class User(Base):
     profile = relationship("UserProfile", back_populates="user", uselist=False)
     knowledgebases = relationship("Knowledgebase", back_populates="user")
     documents = relationship("Document", back_populates="user")
+    service_configs = relationship("ServiceConfig", back_populates="user")
 
 class UserProfile(Base):
     __tablename__ = "user_profiles"
@@ -132,3 +133,16 @@ class Document(Base):
     # Relationships
     knowledgebase = relationship("Knowledgebase", back_populates="documents")
     user = relationship("User", back_populates="documents")
+
+class ServiceConfig(Base):
+    __tablename__ = "service_configs"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False, unique=True)
+    service_name = Column(String(100), nullable=False)
+    config_data = Column(Text, nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+
+    # Relationships
+    user = relationship("User", back_populates="service_configs")

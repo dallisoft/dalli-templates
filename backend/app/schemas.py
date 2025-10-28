@@ -234,3 +234,28 @@ class Document(DocumentBase):
 
     class Config:
         from_attributes = True
+
+# Service configuration schemas
+class ServiceConfigBase(BaseModel):
+    name: str
+    description: Optional[str] = None
+    type: str
+    config: dict
+
+class ServiceConfigCreate(ServiceConfigBase):
+    pass
+
+class ServiceConfigUpdate(BaseModel):
+    name: Optional[str] = None
+    description: Optional[str] = None
+    type: Optional[str] = None
+    config: Optional[dict] = None
+
+class ServiceConfig(ServiceConfigBase):
+    id: UUID
+    user_id: int
+    created_at: datetime
+    updated_at: Optional[datetime] = None
+
+    class Config:
+        from_attributes = True
