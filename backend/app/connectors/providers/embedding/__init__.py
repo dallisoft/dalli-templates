@@ -1,10 +1,12 @@
-"""
-Embedding providers for vector generation.
+"""Embedding service providers"""
 
-Supported providers:
-- HuggingFace Text Embeddings Inference (TEI)
-- OpenAI Embeddings
-- Ollama Embeddings
-- Azure OpenAI Embeddings
-"""
+from .openai_embed import OpenAIEmbedding
+from .huggingface_embed import HuggingFaceEmbedding
+from .ollama_embed import OllamaEmbedding
+
+__all__ = [
+    'OpenAIEmbedding',
+    'HuggingFaceEmbedding',
+    'OllamaEmbedding',
+]
 

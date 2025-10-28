@@ -1,9 +1,8 @@
-"""
-OCR (Optical Character Recognition) providers.
+"""OCR service providers"""
 
-Supported providers:
-- Tesseract (local)
-- Google Vision
-- Azure Computer Vision
-"""
+from .local_tesseract import LocalTesseractProvider
+
+__all__ = [
+    'LocalTesseractProvider',
+]
 

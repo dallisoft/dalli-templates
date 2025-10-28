@@ -66,11 +66,10 @@ class EmbeddingConnector(BaseConnector):
 
     def _init_openai(self) -> Any:
         """Initialize OpenAI embedding provider."""
-        # To be implemented in Phase 2
-        raise ProviderNotFoundError(
-            "OpenAI provider not yet implemented. "
-            "Please use 'huggingface' provider or check back later."
-        )
+        from .providers.embedding.openai_embed import OpenAIEmbedding
+
+        provider_config = self.config.get('openai', {})
+        return OpenAIEmbedding(provider_config)
 
     def _init_huggingface(self) -> Any:
         """Initialize HuggingFace embedding provider."""
@@ -81,11 +80,10 @@ class EmbeddingConnector(BaseConnector):
 
     def _init_ollama(self) -> Any:
         """Initialize Ollama embedding provider."""
-        # To be implemented in Phase 2
-        raise ProviderNotFoundError(
-            "Ollama provider not yet implemented. "
-            "Please use 'huggingface' provider or check back later."
-        )
+        from .providers.embedding.ollama_embed import OllamaEmbedding
+
+        provider_config = self.config.get('ollama', {})
+        return OllamaEmbedding(provider_config)
 
     def _init_azure(self) -> Any:
         """Initialize Azure OpenAI embedding provider."""

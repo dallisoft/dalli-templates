@@ -1,8 +1,8 @@
-"""
-Chunking providers for text segmentation.
+"""Chunking service providers"""
 
-Supported providers:
-- Internal (token-based)
-- LangChain TextSplitter
-"""
+from .internal import InternalChunker
+
+__all__ = [
+    'InternalChunker',
+]
 
